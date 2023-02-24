@@ -1,0 +1,215 @@
+:root {
+  --selected-date: #fff0f0 !important;
+  --button-hover: #c4cbf5 !important;
+  --border-color: #b6deffff;
+}
+
+.calenderContainer {
+  position: absolute;
+  background: aliceblue;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+}
+
+.onTopParent {
+  position: relative;
+}
+
+.onBottomParent {
+  position: relative;
+}
+
+.onTopParent .calenderContainer {
+  bottom: 0;
+}
+
+.onBottomParent .calenderContainer {
+  top: 0;
+}
+
+.datePickerContainer {
+  position: relative;
+  width: 180px;
+  height: 36px;
+  display: inline-block;
+}
+.inputContainer {
+  height: 100%;
+  width: 100%;
+}
+
+.cssPrevMonth {
+  color: #a19494 !important;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 1.7rem;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  align-items: center;
+}
+
+.grid > div {
+  color: black;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dateCalender:hover {
+  background: var(--selected-date);
+}
+
+.selectedDate {
+  background: var(--selected-date);
+}
+
+.dateCalender {
+  cursor: pointer;
+}
+
+.calenderMain {
+}
+
+.calenderInput {
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  /* background: rgba(240, 240, 240, 1); */
+  color: rgba(107, 107, 107, 1);
+  border-radius: 4px;
+  border: 1.4px solid #c5c5c5;
+}
+
+.calenderMain .currentDate {
+  color: blue;
+}
+
+.arrow_button {
+  width: 25px;
+  padding: 7px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  /*background: #d0d6fa;*/
+}
+
+.arrow_button:hover {
+  background: var(--button-hover);
+}
+
+.arrow_button_left {
+  border-radius: 5px 0 0 5px;
+  margin-left: 20px;
+}
+
+.arrow_button_right {
+  border-radius: 0 5px 5px 0;
+  margin-right: 10px;
+}
+
+.calendarHeader {
+  display: flex;
+}
+
+.selectMonth,
+.selectYear {
+  display: inline-block;
+  height: 100%;
+  padding: 2px 10px;
+  border-radius: 5px;
+}
+
+.selectMonth:hover,
+.selectYear:hover {
+  background: var(--button-hover);
+}
+
+.monthsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  /*border-right: 1px solid var(--border-color);*/
+  /*border-bottom: 1px solid var(--border-color);*/
+  cursor: pointer;
+}
+
+.monthsGrid > div:hover {
+  background: #c5dcff;
+}
+
+.monthsGrid > div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.monthsGrid > div:nth-child(3n + 1) {
+  border-left: none !important;
+}
+
+.monthsGrid > div:nth-last-child(-n + 3) {
+  border-bottom: none !important;
+}
+
+.monthsGrid > div:nth-child(-n + 12) {
+  border-left: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  /*border-top: 1px solid var(--border-color);*/
+}
+
+.yearsGrid {
+  display: grid;
+
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 20px 1fr 1fr 1fr 20px;
+
+  gap: 0;
+  height: 100%;
+}
+
+.yearsGrid > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.yearsGrid > div:hover {
+  background: var(--button-hover);
+}
+
+.yearsGrid > div:first-child {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  grid-row-end: 5;
+  grid-column-end: 2;
+}
+
+.yearsGrid > div:last-child {
+  grid-row-start: 1;
+  grid-column-start: 5;
+  grid-row-end: 5;
+  grid-column-end: 6;
+}
+
+.yearG {
+}
+
+.errorInput {
+  outline-color: red;
+}
+.calenderIcon {
+  position: absolute;
+  top: 6px;
+  right: 5px;
+}
