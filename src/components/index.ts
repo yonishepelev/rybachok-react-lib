@@ -1,2 +1,3 @@
-export { DatePicker } from "./datePicker";
+export { DatePicker } from "./DatePicker";
 export { Button } from "./Button";
+export { Checkbox } from "./Checkbox";
