@@ -1,9 +1,9 @@
 import React, { ChangeEvent } from "react";
 import css from "./Checkbox.module.css";
 export interface CheckboxProps {
-  initialValue: boolean;
-  onChange?: (event: ChangeEvent<Element>, newValue: boolean) => void;
-  label: string | React.ReactElement | undefined;
+  initialValue?: boolean;
+  onChange?: (event: ChangeEvent<HTMLInputElement>, newValue: boolean) => void;
+  label?: string | React.ReactElement | undefined;
   value?: boolean;
 }
 
@@ -18,9 +18,9 @@ export const Checkbox = (props: CheckboxProps) => {
       <input
         {...arg}
         defaultChecked={initialValue}
-        onChange={(event) => {
+        onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
           if (typeof onChange === "function")
-            onChange(event, event.target.checked);
+            onChange(event, event.currentTarget.checked);
         }}
         type="checkbox"
       />
