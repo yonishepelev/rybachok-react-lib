@@ -4,14 +4,19 @@ export interface CheckboxProps {
   initialValue: boolean;
   onChange?: (event: ChangeEvent<Element>, newValue: boolean) => void;
   label: string | React.ReactElement | undefined;
+  value?: boolean;
 }
 
 export const Checkbox = (props: CheckboxProps) => {
-  const { initialValue, onChange, label } = props;
-
+  const { initialValue, onChange, label, value } = props;
+  let arg: { checked?: boolean } = {};
+  if (typeof value !== "undefined") {
+    arg.checked = value;
+  }
   return (
     <label className={css.container}>
       <input
+        {...arg}
         defaultChecked={initialValue}
         onChange={(event) => {
           if (typeof onChange === "function")

@@ -1,0 +1,52 @@
+#mainTableId {
+}
+.mainTable {
+  display: flex;
+  flex-flow: column;
+  min-height: 10px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  user-select: none;
+}
+.mainTable thead {
+  position: sticky;
+  top: 1px;
+}
+.mainTable thead {
+  background: white;
+}
+.activeCell {
+  background-color: blue;
+  color: white;
+}
+.activeCell2 {
+  background-color: #00003d;
+  color: white;
+}
+.trTable {
+}
+.inProgress .tdTable {
+  cursor: progress;
+}
+.tdTable {
+  cursor: default;
+  user-select: none;
+}
+.gridTemplate {
+  grid-template-columns: 30px 100px auto;
+}
+.headerGroup {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+.elements {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  overflow: auto;
+  background: #f9f9f9;
+}
+.inProgress {
+  cursor: progress !important;
+}
