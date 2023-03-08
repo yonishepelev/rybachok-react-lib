@@ -9,6 +9,7 @@ interface CalenderProps {
   height?: string;
   selectedDate: Date;
   onDateClick: (newDate: Date) => void;
+  zIndex?: number;
 }
 type weekArrayType = [number, number, number];
 type dateGridType = weekArrayType[][];
@@ -25,6 +26,7 @@ export const Calender = ({
   height,
   selectedDate,
   onDateClick,
+  zIndex = 1,
 }: CalenderProps) => {
   const [gDate, setGDate] = useState(new Date(selectedDate));
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
@@ -110,7 +112,7 @@ export const Calender = ({
       style={{
         width,
         height,
-        zIndex: 1,
+        zIndex,
       }}
       className={css.calenderContainer}
     >
@@ -140,7 +142,7 @@ export const Calender = ({
             <RightArrow />
           </div>
         </button>
-        <h2 className=" text-center py-2 cursor-default">
+        <div className={css.monthButton}>
           <button
             onClick={() => {
               setShowingGrid(showMonthsGrid);
@@ -157,7 +159,7 @@ export const Calender = ({
           >
             {selectedYear}
           </button>
-        </h2>
+        </div>
       </div>
       {showingGrid === showDateGrid && (
         <div className={css.grid}>

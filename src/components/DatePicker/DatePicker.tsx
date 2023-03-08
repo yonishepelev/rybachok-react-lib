@@ -19,11 +19,16 @@ const rybDate = (dateObj: Date) => {
 };
 export interface DatePickerProps {
   date: Date;
-  setDate: React.Dispatch<React.SetStateAction<Date>>;
+  setDate: (date: Date) => void;
+  zIndex?: number;
 }
 
 export const DatePicker = (props: DatePickerProps) => {
   const { date, setDate } = props;
+  let zIndex;
+  if (!props.zIndex) zIndex = 1;
+  else zIndex = props.zIndex;
+
   const [inputV, setInputV] = useState(date ? rybDate(date) : "");
   const [validDate, setValidDate] = useState(date);
   const [errorInput, setErrorInput] = useState(false);
@@ -36,21 +41,31 @@ export const DatePicker = (props: DatePickerProps) => {
   };
   const onchangeWindowSize = useCallback(() => {
     if (!inputRef.current) return;
+
     const { top, bottom } = inputRef.current.getBoundingClientRect();
     const body = document.body,
       html = document.documentElement;
-    const documentHeight = Math.max(
-      body.scrollHeight,
-      body.offsetHeight,
-      html.clientHeight,
-      html.scrollHeight,
-      html.offsetHeight
-    );
+    // const documentHeight = Math.max(
+    //   body.scrollHeight,
+    //   body.offsetHeight,
+    //   html.clientHeight,
+    //   html.scrollHeight,
+    //   html.offsetHeight
+    // );
+    const documentHeight = window.innerHeight;
+    console.log({
+      documentHeight: documentHeight,
+      bottom: bottom,
+      calendarSize_height: calendarSize.height,
+      top: top,
+      first_if: documentHeight - (bottom + calendarSize.height) > 0,
+      second_if: top < calendarSize.height,
+    });
     setOnBottom(
       documentHeight - (bottom + calendarSize.height) > 0 ||
         top < calendarSize.height
     );
-  }, [calendarSize.height]);
+  }, [calendarSize.height, inputRef.current]);
   useEffect(() => {
     onchangeWindowSize();
     window.addEventListener("load", onchangeWindowSize);
@@ -150,6 +165,7 @@ export const DatePicker = (props: DatePickerProps) => {
         width={width}
         height={height}
         selectedDate={validDate}
+        zIndex={zIndex}
       />
     </div>
   );

@@ -83,6 +83,8 @@
   color: rgba(107, 107, 107, 1);
   border-radius: 4px;
   border: 1.4px solid #c5c5c5;
+  padding-left: 10px;
+  box-sizing: border-box;
 }
 
 .calenderMain .currentDate {
@@ -114,13 +116,18 @@
 .calendarHeader {
   display: flex;
 }
-
+button {
+  background: none;
+  border: none;
+}
 .selectMonth,
 .selectYear {
   display: inline-block;
   height: 100%;
   padding: 2px 10px;
   border-radius: 5px;
+  background: none;
+  border: none;
 }
 
 .selectMonth:hover,
@@ -212,4 +219,10 @@
   position: absolute;
   top: 6px;
   right: 5px;
+}
+.monthButton {
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: default;
 }
